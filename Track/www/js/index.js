@@ -74,9 +74,6 @@ function initMap() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
-    // MAP - Place markers
-    markHome.setMap(map);
-
     console.log("initMap");
 }
 
@@ -123,16 +120,16 @@ function startTrack(){
 }
 
 
-function updateTrack(){
-    
+function updateTrack(position){
+    console.log("start tracking");
     var lo = position.coords.longitude;
     var la = position.coords.latitude;
-    var current = new google.maps.LatLng(la, lo);
-    setloc(current, 17);
-    markCurrent = new google.maps.Marker({
+    var tracking = new google.maps.LatLng(la, lo);
+    setloc(tracking, 17);
+    var markTrack = new google.maps.Marker({
         position: tracking,
     });
-    traking.setMap(map);
+    markTrack.setMap(map);
     
 }
 
@@ -140,7 +137,7 @@ function updateTrack(){
 function stopTrack() {
     
 	navigator.geolocation.clearWatch(watchID);
-    
+    console.log("stop tracking");
 }
 
 
