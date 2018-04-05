@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--  Mobile screen size control  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="jquery-mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css">
+    <script src="cordova.js"></script>
+    <script src="jquery-mobile/jquery-1.8.3.min.js"></script>
+    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/index.js"></script>
+    
+    <!--<script src="phonegap.js"></script>-->
+    <!--  Google maps API call + key  -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhqFQF2QvuleiNksrQltbkCWEip44uNqo" defer></script>
+
+    <!--  Maximise content div - map div dynamically sized on run (getRealContentHeight())  -->
+    <style>
+        #content {
+            padding: 0 !important;
+        }
+        
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+        
+    </style>
+
+</head>
+
+<body>
+
+    <div data-role="page" id="pageone">
+
+        <div data-role="panel" id="navpanel" data-display="overlay">
+            <h2>Select</h2>
+            <input type="button" value="Home" id="btnhome">
+            <input type="button" value="Cathedral" id="btncathedral">
+            <input type="button" value="Uni St John's" id="btnuni">
+            <input type="button" value="Boston" id="btnboston">
+            <p></p>
+            <input type="button" value="Current location" id="btnhere" data-theme="b">
+            <p></p>
+            <label for="flip-loc"><b>Live monitoring:</b></label>
+            <input data-role="flipswitch" name="flip-loc" id="flip-loc" type="checkbox">
+        </div>
+
+        <div data-role="header">
+            <a href="#navpanel" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-icon-bars ui-btn-icon-left" rel="external">Locations</a>
+            <h3>Google Maps</h3>
+        </div>
+        
+        
+        
+        
+      <div id="floating-panel">
+      <input id="address" type="textbox" value="Sydney, NSW">
+      <input id="submit" type="button" value="Geocode">
+      </div>
+     <div id="map"></div>
+        
+        
+        
+        <div data-role="content" id="content">
+            <div id="map_canvas" style="height:100%"></div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h3>Monitoring <span id="monitorText">OFF</span></h3>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

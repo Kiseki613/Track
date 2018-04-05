@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "mob.app.dev.googlemaps"
+        version   = "1.0.7">
+
+    <name>Track</name>
+
+    <description>
+        My track
+    </description>
+
+    <author email="huaj1_15@uni.worc.ac.uk">
+        Huang Jingjing
+    </author>
+
+<!-- removed to allow cordova-plugin-geolocation-android-activator to work-->
+<!--    <preference name="phonegap-version" value="cli-7.0.1" />-->
+	
+    <preference name="permissions"                value="none"/>   
+	
+	<access origin="*"/>
+    
+   	<plugin name="cordova-plugin-whitelist" version="1" />
+    
+<!--    <plugin name="cordova-plugin-android-permissions" />-->
+    
+    <!--Android 6.0 or newer: Plugin to support runtime permissions--> 
+    <plugin name="cordova-plugin-geolocation-android-activator" />
+    
+    <!--Plugin to support gathering of location data--> 
+    <plugin name="cordova-plugin-geolocation"  />
+    
+    
+    
+</widget>
