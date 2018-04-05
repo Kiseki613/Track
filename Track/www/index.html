@@ -13,7 +13,7 @@
     
     <script src="phonegap.js"></script>
     <!--  Google maps API call + key  -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhqFQF2QvuleiNksrQltbkCWEip44uNqo" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhpu9kAo7650VIz0020cvGANLy8ESkqc " defer></script>
 
     <!--  Maximise content div - map div dynamically sized on run (getRealContentHeight())  -->
     <style>
@@ -56,15 +56,23 @@
 
         <div data-role="panel" id="navpanel" data-display="overlay">
             <h2>Select</h2>
-            <input type="button" value="Home" id="btnhome">
-            <input type="button" value="Cathedral" id="btncathedral">
-            <input type="button" value="Uni St John's" id="btnuni">
-            <input type="button" value="Boston" id="btnboston">
             <p></p>
             <input type="button" value="Current location" id="btnhere" data-theme="b">
             <p></p>
-            <label for="flip-loc"><b>Live monitoring:</b></label>
-            <input data-role="flipswitch" name="flip-loc" id="flip-loc" type="checkbox">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <input type="button" value="Start" id="start">
+            <input type="button" value="Stop" id="stop">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <input type="button" value="Clear" id="clear" data-theme="b">
         </div>
 
         <div data-role="header">
@@ -81,7 +89,7 @@
         </div>
 
         <div data-role="footer" data-position="fixed">
-            <h3>Monitoring <span id="monitorText">OFF</span></h3>
+            <h3>Track <span id="trackText">OFF</span></h3>
         </div>
 
     </div>
