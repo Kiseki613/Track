@@ -92,12 +92,7 @@ function successPosition(position) {
     var lat = position.coords.latitude;
     var current = new google.maps.LatLng(lat, long);
     setloc(current, 17);
-    markCurrent = new google.maps.Marker({
-        position: current,
-        title: 'Start Point'
-    });
-    markCurrent.setMap(map);
-    
+
 }
 
 function failPosition(err) {
