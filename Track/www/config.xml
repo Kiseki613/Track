@@ -27,11 +27,17 @@
 <!--    <plugin name="cordova-plugin-android-permissions" />-->
     
     <!--Android 6.0 or newer: Plugin to support runtime permissions--> 
-    <plugin name="cordova-plugin-geolocation-android-activator" />
+    <plugin name="cordova-plugin-geolocation-android-activator" spec="1.1.2" />
     
     <!--Plugin to support gathering of location data--> 
-    <plugin name="cordova-plugin-geolocation"  />
+    <plugin name="cordova-plugin-geolocation" spec="3.0.0"/>
     
-    
+    <!--Apple iOS 10 or newer: Adding a parameter to the ios build to allow suer to give permission to access location-->
+    <config-file platform="ios" parent="NSLocationWhenInUseUsageDescription" mode="merge">
+        <array>
+            <key>NSLocationWhenInUseUsageDescription</key>
+            <string>Give me your location! Let me have it!!!</string>
+        </array>
+    </config-file>
     
 </widget>
