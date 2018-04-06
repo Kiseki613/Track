@@ -119,7 +119,7 @@ function startTrack(){
 
 function updateTrack(position){
     console.log("tracking...");
-    
+    alert("tracking..");
     var lo = position.coords.longitude;
     var la = position.coords.latitude;
     var tracking = new google.maps.LatLng(la, lo);
@@ -156,6 +156,7 @@ function stopTrack() {
 	navigator.geolocation.clearWatch(watchID);
     
     console.log("stop tracking");
+    alert("stop tracking");
 }
 
 
@@ -165,11 +166,13 @@ function stopTrack() {
     trackPlanCoordinates=[];
     i=0;
     console.log("track path was cleared.");
+    alert("track path was cleared.");
      
  }
 
 //called if the position is not obtained correctly
 function failTrack(error) {
+    alert("cannot get your position");
 
 	console.log("The position is not obtained correctly.");
 	
