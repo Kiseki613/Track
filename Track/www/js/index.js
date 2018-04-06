@@ -14,7 +14,14 @@ function onDeviceReady() {
     // Set map size dynamically
     $('#content').height(getRealContentHeight());
 
+    
+    
     // Button listeners
+    $('#btnhere').on("click", function () {
+        $("[data-role=panel]").panel("close");
+        getPosition();
+    });
+    
     $('#start').on("click", function () {
         $("[data-role=panel]").panel("close");
         $('#trackText').text("ON");
@@ -29,13 +36,12 @@ function onDeviceReady() {
         $("[data-role=panel]").panel("close");
         clearTrack();
     });
-
-    $('#btnhere').on("click", function () {
+    
+    $('#deleteM').on("click",function(){
         $("[data-role=panel]").panel("close");
-        getPosition();
+        deleteMarkers();
     });
 
-    
     console.log("onDeviceReady");
 }
 
