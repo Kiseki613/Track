@@ -26,6 +26,7 @@ function onDeviceReady() {
     });
     $('#clear').on("click", function () {
         $("[data-role=panel]").panel("close");
+        clearTrack();
     });
 
     $('#btnhere').on("click", function () {
@@ -33,11 +34,7 @@ function onDeviceReady() {
         getPosition();
     });
 
-    // LIVE MOITORING - toggle switch to turn Geolocation.watchPosition() on/off
-    $("#flip-loc").on("change", function () {
-        $("[data-role=panel]").panel("close");
-        handleToggle();
-    });
+    
     console.log("onDeviceReady");
 }
 
@@ -61,12 +58,6 @@ function initMap() {
     // Set initial zoom for consistency
     var initZoomLevel = 15;
     var worc = {lat:52.193636, lng:-2.221575};
-    // MAP - Create markers
-   /* markHome = new google.maps.Marker({
-        position: locHome,
-        title: 'Home'
-    });*/
-    
     // Create map
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         zoom: initZoomLevel,
@@ -106,9 +97,13 @@ function setloc(loc, zoom) {
 <!--Tracking-->
 
 var watchID;
-var i=0;
-var trackPlanCoordinates=[];
 
+//the number of saved positions
+var i=0;
+//the arrey to put saved positions
+var trackPlanCoordinates=[];
+//track path
+var trackPath;
 var locationOptions = { 
 	maximumAge: 10000, 
 	timeout: 6000, 
@@ -123,7 +118,7 @@ function startTrack(){
 
 
 function updateTrack(position){
-    console.log("start tracking");
+    console.log("tracking...");
     
     var lo = position.coords.longitude;
     var la = position.coords.latitude;
@@ -145,25 +140,33 @@ function updateTrack(position){
         i++;
        
     console.log(trackPlanCoordinates);
-    var trackPath = new google.maps.Polyline({
+    trackPath = new google.maps.Polyline({
     path: trackPlanCoordinates,
     geodesic: true,
     strokeColor: '#FF0000',
     strokeOpacity: 1.0,
-    strokeWeight: 10
+    strokeWeight: 15
   });
-
   trackPath.setMap(map);
   
 }
 
 
 function stopTrack() {
-    
 	navigator.geolocation.clearWatch(watchID);
+    
     console.log("stop tracking");
 }
 
+
+ function clearTrack() {
+     
+    trackPath.setMap(null);
+    trackPlanCoordinates=[];
+    i=0;
+    console.log("track path was cleared.");
+     
+ }
 
 //called if the position is not obtained correctly
 function failTrack(error) {
