@@ -106,6 +106,8 @@ function setloc(loc, zoom) {
 <!--Tracking-->
 
 var watchID;
+var i=0;
+var trackPlanCoordinates=[];
 
 var locationOptions = { 
 	maximumAge: 10000, 
@@ -130,12 +132,17 @@ function updateTrack(position){
     var markTrack = new google.maps.Marker({
         position: tracking,
     });
+    
+    if(i==0){
     markTrack.setMap(map);
+    }
     
-    var i=0;
-    var trackPlanCoordinates=[];
-    trackPlanCoordinates[i]={lat:position.coords.latitude,lng:position.coords.longitude}
     
+    trackPlanCoordinates[i]={lat:la,lng:lo}
+        console.log(i);
+        i++;
+       
+    console.log(trackPlanCoordinates);
     var trackPath = new google.maps.Polyline({
     path: trackPlanCoordinates,
     geodesic: true,
@@ -145,9 +152,7 @@ function updateTrack(position){
   });
 
   trackPath.setMap(map);
-    i++;
-    
-   
+  
 }
 
 
@@ -164,3 +169,5 @@ function failTrack(error) {
 	console.log("The position is not obtained correctly.");
 	
 }
+
+
