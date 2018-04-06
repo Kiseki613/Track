@@ -35,7 +35,7 @@ function onDeviceReady() {
     $('#clear').on("click", function () {
         $("[data-role=panel]").panel("close");
         //clearTrack();
-        clearPathDismissed();
+        clearPathDialog();
     });
     
     $('#deleteM').on("click",function(){
