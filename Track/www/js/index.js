@@ -225,19 +225,18 @@ function stopTrack() {
 
 function clearPathDialog() {
 
-	//phonegap supports native dialog boxes.
-	//here's a simple example
+
       
 	navigator.notification.confirm(
-    	// message
-        clearPathDismissed,         // callback
-        'Do you want to clear the path?'            // title
-        ['Yes', 'No']                  // buttons
+    	'Do you want to clear the path?',// message
+        dialogDismissed,         // callback
+        'Confirm',          // title
+        ['OK', 'Cancel']                  // buttons
     );
 
 }
 
-function clearPathDismissed(buttonIndex) {
+function dialogDismissed(buttonIndex) {
 	
 	if(buttonIndex==1) {
         clearTrack();
