@@ -102,13 +102,15 @@ var watchID;
 var i=0;
 //the arrey to put saved positions
 var trackPlanCoordinates=[];
+var markTrack;
 //track path
-var trackPath;
+var trackPath=[];
 var locationOptions = { 
 	maximumAge: 10000, 
 	timeout: 6000, 
 	enableHighAccuracy: true
 };
+
 
 function startTrack(){
     
@@ -124,20 +126,18 @@ function updateTrack(position){
     var la = position.coords.latitude;
     var tracking = new google.maps.LatLng(la, lo);
     setloc(tracking, 17);
-    var markTrack = new google.maps.Marker({
+    markTrack = new google.maps.Marker({
         position: tracking,
     });
     
-    /*if(i==0){
+    if(i==0){
     markTrack.setMap(map);
-    }*/
+    }
     
-    markTrack.setMap(map);
     
     
     trackPlanCoordinates[i]={lat:la,lng:lo}
-        console.log(i);
-        i++;
+
        
     console.log(trackPlanCoordinates);
     trackPath = new google.maps.Polyline({
@@ -147,8 +147,10 @@ function updateTrack(position){
     strokeOpacity: 1.0,
     strokeWeight: 15
   });
-  trackPath.setMap(map);
-  
+  trackPath[i].setMap(map);
+    
+  console.log(i);
+  i++;
 }
 
 
@@ -162,7 +164,12 @@ function stopTrack() {
 
  function clearTrack() {
      
-    trackPath.setMap(null);
+    var n;
+     
+    for(n=0;n<=i;n++){
+    trackPath[n].setMap(null);
+    }
+     
     trackPlanCoordinates=[];
     i=0;
     console.log("track path was cleared.");
