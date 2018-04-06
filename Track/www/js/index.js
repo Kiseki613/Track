@@ -123,31 +123,29 @@ function startTrack(){
 function updateTrack(position){
     console.log("start tracking");
     
-     poly = new google.maps.Polyline({
-    strokeColor: '#000000',
-    strokeOpacity: 1.0,
-    strokeWeight: 3
-    });
-
-    poly.setMap(map);
-    var path = poly.getPath();
-    path.push(new google.maps.LatLng);
-    
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng,
-        title:'#'+path.getLength(),
-        map:map
-    });
-    /*var lo = position.coords.longitude;
+    var lo = position.coords.longitude;
     var la = position.coords.latitude;
     var tracking = new google.maps.LatLng(la, lo);
     setloc(tracking, 17);
     var markTrack = new google.maps.Marker({
         position: tracking,
     });
-    path.push(markTrack);
-    markTrack.setMap(map);*/
+    markTrack.setMap(map);
     
+    var i=0;
+    var trackPlanCoordinates=[];
+    trackPlanCoordinates[i]={lat:position.coords.latitude,lng:position.coords.longitude}
+    
+    var trackPath = new google.maps.Polyline({
+    path: trackPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  trackPath.setMap(map);
+    i++;
     
    
 }
