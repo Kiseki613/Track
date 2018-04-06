@@ -112,7 +112,7 @@ var trackPlanCoordinates=[];
 var locationOptions = { 
 	maximumAge: 10000, 
 	timeout: 6000, 
-	enableHighAccuracy: false 
+	enableHighAccuracy: true
 };
 
 function startTrack(){
@@ -133,9 +133,11 @@ function updateTrack(position){
         position: tracking,
     });
     
-    if(i==0){
+    /*if(i==0){
     markTrack.setMap(map);
-    }
+    }*/
+    
+    markTrack.setMap(map);
     
     
     trackPlanCoordinates[i]={lat:la,lng:lo}
@@ -148,7 +150,7 @@ function updateTrack(position){
     geodesic: true,
     strokeColor: '#FF0000',
     strokeOpacity: 1.0,
-    strokeWeight: 5
+    strokeWeight: 10
   });
 
   trackPath.setMap(map);
