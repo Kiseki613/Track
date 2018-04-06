@@ -123,7 +123,7 @@ function deleteMarkersDialog() {
 
 	navigator.notification.confirm(
     	'Do you want to delete markers?',// message
-        clearPathDismissed,         // callback
+        deleteMarkersDismissed,         // callback
         'Confirm',          // title
         ['OK', 'Cancel']                  // buttons
     );
