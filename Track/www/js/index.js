@@ -140,7 +140,7 @@ function updateTrack(position){
 
        
     console.log(trackPlanCoordinates);
-    trackPath = new google.maps.Polyline({
+    trackPath[i] = new google.maps.Polyline({
     path: trackPlanCoordinates,
     geodesic: true,
     strokeColor: '#FF0000',
