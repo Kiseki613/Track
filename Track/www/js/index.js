@@ -36,14 +36,14 @@ function onDeviceReady() {
     });
     $('#clear').on("click", function () {
         $("[data-role=panel]").panel("close");
-        //clearTrack();
-        clearPathDialog();
+        clearTrack();
+        //clearPathDialog();
     });
     
     $('#deleteM').on("click",function(){
         $("[data-role=panel]").panel("close");
-        //deleteMarkers();
-        deleteMarkersDialog();
+        deleteMarkers();
+        //deleteMarkersDialog();
     });
 
     console.log("onDeviceReady");
@@ -95,6 +95,7 @@ function addMarker(location) {
         });
         markers[m] = marker;
         markPosition[m] = location;
+        console.log("markPosition:"+markPosition[m]);
         m++;
       }
 
@@ -224,13 +225,37 @@ function updateTrack(position){
     
   console.log(i);
   i++;
-    
-    
-    for(var x=0;x<markPosition.length;x++){
-        if(markPosition[x] == position){
+   
+ /*if(markPosition.length!=0){  
+   var a = [];
+   var b = [];
+   var c = Math.abs(la);
+   var d = Math.abs(lo);
+   console.log(d);
+   var e = [];
+   var f = [];
+   var x; 
+    for(x=0;x<markPosition.length;x++){
+       a[x] = Math.abs(markPosition[x].coords.latitude);
+       b[x] = Math.abs(markPosition[x].coords.longitude);
+       e[x] = Math.abs(a[x]-c);
+       f[x] = Math.abs(b[x]-d);
+       console.log(e[x]);
+       console.log(f[x]);
+        if(e[x]<0.0005&&f[x]<0.0005){
           createNotification();
         } 
-    }
+    }  
+    x=0;
+    a=[];
+    b=[];
+    e=[];
+    f=[];
+ }
+    */
+    
+    
+    
 }
 
 
