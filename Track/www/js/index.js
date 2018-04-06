@@ -3,6 +3,8 @@ $(document).on('pageshow', '#pageone', onLoad);
 
 var map;
 var markers = [];
+var markPosition = [];
+var m=0;
 
 function onLoad() {
     onDeviceReady()
@@ -40,7 +42,8 @@ function onDeviceReady() {
     
     $('#deleteM').on("click",function(){
         $("[data-role=panel]").panel("close");
-        deleteMarkers();
+        //deleteMarkers();
+        deleteMarkersDialog();
     });
 
     console.log("onDeviceReady");
@@ -85,12 +88,14 @@ function initMap() {
 }
 
 // Adds a marker to the map and push to the array.
-      function addMarker(location) {
+function addMarker(location) {
         var marker = new google.maps.Marker({
           position: location,
           map: map
         });
-        markers.push(marker);
+        markers[m] = marker;
+        markPosition[m] = location;
+        m++;
       }
 
 // Sets the map on all markers in the array.
@@ -104,12 +109,40 @@ function setMapOnAll(map) {
 function deleteMarkers() {
         clearMarkers();
         markers = [];
+        markPosition = [];
+        m = 0;
       }
 
  // Removes the markers from the map, but keeps them in the array.
-      function clearMarkers() {
+function clearMarkers() {
         setMapOnAll(null);
       }
+
+
+function deleteMarkersDialog() {
+
+	navigator.notification.confirm(
+    	'Do you want to delete markers?',// message
+        clearPathDismissed,         // callback
+        'Confirm',          // title
+        ['OK', 'Cancel']                  // buttons
+    );
+
+}
+
+function deleteMarkersDismissed(buttonIndex) {
+	
+	if(buttonIndex==1) {
+        deleteMarkers();
+        
+        new Toast({content: "Markers are deleted.", duration: 3000});
+    }
+   	else if(buttonIndex==2) 
+        $("[data-role=panel]").panel("close");
+
+}
+
+
 
 
 
@@ -191,6 +224,13 @@ function updateTrack(position){
     
   console.log(i);
   i++;
+    
+    
+    for(var x=0;x<markPosition.length;x++){
+        if(markPosition[x] == position){
+          createNotification();
+        } 
+    }
 }
 
 
@@ -229,19 +269,19 @@ function clearPathDialog() {
       
 	navigator.notification.confirm(
     	'Do you want to clear the path?',// message
-        dialogDismissed,         // callback
+        clearPathDismissed,         // callback
         'Confirm',          // title
         ['OK', 'Cancel']                  // buttons
     );
 
 }
 
-function dialogDismissed(buttonIndex) {
+function clearPathDismissed(buttonIndex) {
 	
 	if(buttonIndex==1) {
         clearTrack();
         
-        new Toast({content: "Path is cleared.", duration: 3000});
+        new Toast({content: "Track path is cleared.", duration: 3000});
     }
    	else if(buttonIndex==2) 
         $("[data-role=panel]").panel("close");
@@ -255,4 +295,26 @@ function failTrack(error) {
 	
 }
 
+
+function createNotification() {
+        		
+	//
+    //generate a time to post notification
+    //
+    var currentTime = new Date().getTime(); //current time
+    var notificationTime = new Date(currentTime + 1000); //delayed time  - add 1 second
+    			
+    //
+    //setup notification
+    //
+    
+    cordova.plugins.notification.local.schedule({ 
+    	id: 		1,
+        title: 		"Nitification",
+        message: 	"You has reached the point you set",
+        date: 		notificationTime, 
+        badge: 		notification_count++
+   	});
+    
+}
 
