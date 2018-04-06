@@ -122,15 +122,34 @@ function startTrack(){
 
 function updateTrack(position){
     console.log("start tracking");
-    var lo = position.coords.longitude;
+    
+     poly = new google.maps.Polyline({
+    strokeColor: '#000000',
+    strokeOpacity: 1.0,
+    strokeWeight: 3
+    });
+
+    poly.setMap(map);
+    var path = poly.getPath();
+    path.push(new google.maps.LatLng);
+    
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng,
+        title:'#'+path.getLength(),
+        map:map
+    });
+    /*var lo = position.coords.longitude;
     var la = position.coords.latitude;
     var tracking = new google.maps.LatLng(la, lo);
     setloc(tracking, 17);
     var markTrack = new google.maps.Marker({
         position: tracking,
     });
-    markTrack.setMap(map);
+    path.push(markTrack);
+    markTrack.setMap(map);*/
     
+    
+   
 }
 
 
@@ -144,6 +163,6 @@ function stopTrack() {
 //called if the position is not obtained correctly
 function failTrack(error) {
 
-	alert("Sorry, the position is not obtained correctly.");
+	console.log("The position is not obtained correctly.");
 	
 }
