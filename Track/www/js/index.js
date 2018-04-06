@@ -2,6 +2,7 @@
 $(document).on('pageshow', '#pageone', onLoad);
 
 var map;
+var markers = [];
 
 function onLoad() {
     onDeviceReady()
@@ -64,9 +65,46 @@ function initMap() {
         center: worc,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+    
+    
+    
+   // This event listener will call addMarker() when the map is clicked.
+    map.addListener('click', function(event) {
+          addMarker(event.latLng);
+        });
+
 
     console.log("initMap");
 }
+
+// Adds a marker to the map and push to the array.
+      function addMarker(location) {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        markers.push(marker);
+      }
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+      }
+
+ // Removes the markers from the map, but keeps them in the array.
+      function clearMarkers() {
+        setMapOnAll(null);
+      }
+
+
 
 //Call this function when you want to get the current position
 function getPosition() {
@@ -121,7 +159,6 @@ function startTrack(){
 
 function updateTrack(position){
     console.log("tracking...");
-    alert("tracking..");
     var lo = position.coords.longitude;
     var la = position.coords.latitude;
     var tracking = new google.maps.LatLng(la, lo);
@@ -130,11 +167,7 @@ function updateTrack(position){
         position: tracking,
     });
     
-    if(i==0){
-    markTrack.setMap(map);
-    }
-    
-    
+
     
     trackPlanCoordinates[i]={lat:la,lng:lo}
 
@@ -166,20 +199,24 @@ function stopTrack() {
      
     var n;
      
-    for(n=0;n<=i;n++){
+    for(n=0;n<i;n++){
+        
     trackPath[n].setMap(null);
+        
     }
+    
+  
      
     trackPlanCoordinates=[];
     i=0;
+     
     console.log("track path was cleared.");
-    alert("track path was cleared.");
+   
      
  }
 
 //called if the position is not obtained correctly
 function failTrack(error) {
-    alert("cannot get your position");
 
 	console.log("The position is not obtained correctly.");
 	

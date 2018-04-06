@@ -34,16 +34,18 @@
       }
       #floating-panel {
         position: absolute;
-        top: 10px;
-        left: 25%;
+        top: 45px;
+        right: 50%;
         z-index: 5;
         background-color: #fff;
         padding: 5px;
         border: 1px solid #999;
         text-align: center;
         font-family: 'Roboto','sans-serif';
-        line-height: 30px;
+        line-height: 5px;
         padding-left: 10px;
+
+
       }
         
     </style>
@@ -51,11 +53,13 @@
 </head>
 
 <body>
+<!--<div id="floating-panel" ><p>Click on the map to add markers.</p></div>-->
+
 
     <div data-role="page" id="pageone">
 
         <div data-role="panel" id="navpanel" data-display="overlay">
-            <h2>Start your track</h2>
+            <h2>Track your way</h2>
             <p></p>
             <input type="button" value="Current location" id="btnhere" data-theme="b">
             <p></p>
@@ -72,11 +76,12 @@
             <p></p>
             <p></p>
             <p></p>
-            <input type="button" value="Clear" id="clear" data-theme="b">
+            <input type="button" value="Clear Path" id="clear" data-theme="b">
+            <input onclick="deleteMarkers();" type=button value="Delete Markers">
         </div>
 
         <div data-role="header">
-            <a href="#navpanel" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-icon-bars ui-btn-icon-left" rel="external">Set</a>
+            <a href="#navpanel" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-icon-bars ui-btn-icon-left" rel="external">Start</a>
             <h3>Track</h3>
         </div>
         
