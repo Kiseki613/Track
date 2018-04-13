@@ -257,8 +257,11 @@ function updateTrack(position){
         
        console.log("distance:"+g[x]);
         
-        if(g[x]<1){
-          createNotification();
+        if(g[x]<0.005){
+         // createNotification();
+           alert( "You has reached the point you set");
+          // markPosition[x]=null;
+           
         } 
     }  
     x=0;
