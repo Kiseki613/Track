@@ -206,8 +206,6 @@ function updateTrack(position){
     
      console.log("a " + markPosition)
     
-   createNotification(); 
-    
     var lo = position.coords.longitude;
     var la = position.coords.latitude;
     var tracking = new google.maps.LatLng(la, lo);
@@ -261,7 +259,7 @@ if(markPosition.length!=0){
         
         if(g[x]<0.0005){
          createNotification();
-           alert( "You has reached the point you set");
+         alert( "You has reached the point you set");
           //markPosition[x]=null;
            
         } 
