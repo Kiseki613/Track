@@ -237,7 +237,7 @@ function updateTrack(position){
     
     console.log("b " + markPosition[0])
     
-/* if(markPosition.length!=0){  
+if(markPosition.length!=0){  
    var a = [];
    var b = [];
    var c = Math.abs(la);
@@ -260,9 +260,9 @@ function updateTrack(position){
        console.log("distance:"+g[x]);
         
         if(g[x]<0.0005){
-         // createNotification();
+         createNotification();
            alert( "You has reached the point you set");
-          // markPosition[x]=null;
+          //markPosition[x]=null;
            
         } 
     }  
@@ -273,7 +273,7 @@ function updateTrack(position){
     f=[];
     g=[];
  }
-    */
+    
     
     
     
