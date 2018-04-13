@@ -18,7 +18,7 @@
 <!-- removed to allow cordova-plugin-geolocation-android-activator to work-->
 <!--    <preference name="phonegap-version" value="cli-7.0.1" />-->
 	
-    <preference name="permissions"                value="none"/>   
+     <preference name="phonegap-version" value="cli-7.0.1" />
 	
 	<access origin="*"/>
     

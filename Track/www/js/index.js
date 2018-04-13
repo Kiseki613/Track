@@ -95,6 +95,7 @@ function addMarker(location) {
           map: map
         });
         markers[m] = marker;
+       // markPosition[m] = { lat:location.lat(), lng:location.lng(), notified:no };
         markPosition[m] = location;
         console.log("markPosition:"+markPosition[m]);
         m++;
@@ -246,7 +247,7 @@ if(markPosition.length!=0){
    var x; 
     for(x=0;x<markPosition.length;x++){
         
-         console.log("c " + markPosition[x].lat());
+         console.log("c " + markPosition[x]);
         
         
        a[x] = Math.abs(markPosition[x].lat());
@@ -257,10 +258,9 @@ if(markPosition.length!=0){
         
        console.log("distance:"+g[x]);
         
-        if(g[x]<0.0005){
+        if(g[x]<1){
          createNotification();
-         alert( "You has reached the point you set");
-          //markPosition[x]=null;
+        // alert( "You has reached the point you set");
            
         } 
     }  
@@ -342,6 +342,8 @@ function failTrack(error) {
 
 function createNotification() {
         		
+    alert("createNotification");
+    
 	//
     //generate a time to post notification
     //
