@@ -257,7 +257,7 @@ function updateTrack(position){
         
        console.log("distance:"+g[x]);
         
-        if(g[x]<0.005){
+        if(g[x]<0.0005){
          // createNotification();
            alert( "You has reached the point you set");
           // markPosition[x]=null;
