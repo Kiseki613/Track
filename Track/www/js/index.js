@@ -206,6 +206,8 @@ function updateTrack(position){
     
      console.log("a " + markPosition)
     
+   createNotification(); 
+    
     var lo = position.coords.longitude;
     var la = position.coords.latitude;
     var tracking = new google.maps.LatLng(la, lo);
@@ -235,7 +237,7 @@ function updateTrack(position){
     
     console.log("b " + markPosition[0])
     
- if(markPosition.length!=0){  
+/* if(markPosition.length!=0){  
    var a = [];
    var b = [];
    var c = Math.abs(la);
@@ -271,7 +273,7 @@ function updateTrack(position){
     f=[];
     g=[];
  }
-    
+    */
     
     
     
