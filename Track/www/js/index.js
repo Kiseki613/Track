@@ -89,7 +89,8 @@ function initMap() {
 
 // Adds a marker to the map and push to the array.
 function addMarker(location) {
-        var marker = new google.maps.Marker({
+     console.log("addMarker" )
+    var marker = new google.maps.Marker({
           position: location,
           map: map
         });
@@ -108,6 +109,8 @@ function setMapOnAll(map) {
 
 // Deletes all markers in the array by removing references to them.
 function deleteMarkers() {
+        console.log("deleteMarkers")
+    
         clearMarkers();
         markers = [];
         markPosition = [];
@@ -200,6 +203,9 @@ function startTrack(){
 
 function updateTrack(position){
     console.log("tracking...");
+    
+     console.log("a " + markPosition)
+    
     var lo = position.coords.longitude;
     var la = position.coords.latitude;
     var tracking = new google.maps.LatLng(la, lo);
@@ -226,23 +232,32 @@ function updateTrack(position){
   console.log(i);
   i++;
    
- /*if(markPosition.length!=0){  
+    
+    console.log("b " + markPosition[0])
+    
+ if(markPosition.length!=0){  
    var a = [];
    var b = [];
    var c = Math.abs(la);
    var d = Math.abs(lo);
-   console.log(d);
    var e = [];
    var f = [];
+   var g = [];
    var x; 
     for(x=0;x<markPosition.length;x++){
-       a[x] = Math.abs(markPosition[x].coords.latitude);
-       b[x] = Math.abs(markPosition[x].coords.longitude);
-       e[x] = Math.abs(a[x]-c);
-       f[x] = Math.abs(b[x]-d);
-       console.log(e[x]);
-       console.log(f[x]);
-        if(e[x]<0.0005&&f[x]<0.0005){
+        
+         console.log("c " + markPosition[x].lat());
+        
+        
+       a[x] = Math.abs(markPosition[x].lat());
+       b[x] = Math.abs(markPosition[x].lng());
+       e[x] = (a[x]-c)*(a[x]-c);
+       f[x] = (b[x]-d)*(b[x]-d);
+       g[x] = Math.sqrt(e[x]+f[x]); 
+        
+       console.log("distance:"+g[x]);
+        
+        if(g[x]<0.0005){
           createNotification();
         } 
     }  
@@ -251,8 +266,9 @@ function updateTrack(position){
     b=[];
     e=[];
     f=[];
+    g=[];
  }
-    */
+    
     
     
     
@@ -335,7 +351,7 @@ function createNotification() {
     
     cordova.plugins.notification.local.schedule({ 
     	id: 		1,
-        title: 		"Nitification",
+        title: 		"Notification",
         message: 	"You has reached the point you set",
         date: 		notificationTime, 
         badge: 		notification_count++
