@@ -342,8 +342,7 @@ function failTrack(error) {
 
 function createNotification() {
         		
-    alert("createNotification");
-    
+   alert("createNotification");
 	//
     //generate a time to post notification
     //

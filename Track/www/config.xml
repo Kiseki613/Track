@@ -16,7 +16,6 @@
     </author>
 
 <!-- removed to allow cordova-plugin-geolocation-android-activator to work-->
-<!--    <preference name="phonegap-version" value="cli-7.0.1" />-->
 	
      <preference name="phonegap-version" value="cli-7.0.1" />
 	
@@ -24,7 +23,7 @@
     
    	<plugin name="cordova-plugin-whitelist" version="1" />
     
-<!--    <plugin name="cordova-plugin-android-permissions" />-->
+    <plugin name="cordova-plugin-android-permissions" />
     
     <!--Android 6.0 or newer: Plugin to support runtime permissions--> 
     <plugin name="cordova-plugin-geolocation-android-activator" spec="1.1.2" />
