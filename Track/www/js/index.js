@@ -68,8 +68,7 @@ function getRealContentHeight() {
 
 function checkConnection() {
     var networkState = navigator.connection.type;
- 
-    var states = {};
+    /*var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
     states[Connection.WIFI]     = 'WiFi connection';
@@ -80,6 +79,13 @@ function checkConnection() {
     states[Connection.NONE]     = 'No network connection';
  
     alert('Connection type: ' + states[networkState]);
+}*/
+ 
+    if (networkState = Connection.NONE)
+        {
+            alert('No network connection');
+        }
+    
 }
  
 
