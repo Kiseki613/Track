@@ -342,24 +342,7 @@ function failTrack(error) {
 
 function createNotification() {
         		
-   alert("createNotification");
-	//
-    //generate a time to post notification
-    //
-    var currentTime = new Date().getTime(); //current time
-    var notificationTime = new Date(currentTime + 1000); //delayed time  - add 1 second
-    			
-    //
-    //setup notification
-    //
-    
-    cordova.plugins.notification.local.schedule({ 
-    	id: 		1,
-        title: 		"Notification",
-        message: 	"You has reached the point you set",
-        date: 		notificationTime, 
-        badge: 		notification_count++
-   	});
+  navigator.vibrate(3000);
     
 }
 
