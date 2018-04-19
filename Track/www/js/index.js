@@ -7,7 +7,9 @@ var markPosition = [];
 var m=0;
 
 function onLoad() {
-    onDeviceReady()
+    
+    onDeviceReady();
+    checkConnection();
     initMap();
 }
 
@@ -63,6 +65,24 @@ function getRealContentHeight() {
     }
     return content_height;
 }
+
+function checkConnection() {
+    var networkState = navigator.connection.type;
+ 
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+ 
+    alert('Connection type: ' + states[networkState]);
+}
+ 
+
 
 // Initialise map
 function initMap() {
@@ -259,7 +279,7 @@ if(markPosition.length!=0){
        console.log("distance:"+g[x]);
         
         if(g[x]<1){
-         createNotification();
+         createVibrate();
         // alert( "You has reached the point you set");
            
         } 
@@ -340,7 +360,7 @@ function failTrack(error) {
 }
 
 
-function createNotification() {
+function createVibrate() {
         		
   navigator.vibrate(6000);
   new Toast({content: "You has reached the point you set.", duration: 3000});

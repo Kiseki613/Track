@@ -24,6 +24,8 @@
     
     <plugin name="cordova-plugin-vibration" spec="~3.1.0" />
     
+    <plugin name="cordova-plugin-network-information" spec="~2.0.1" />
+    
     <!--Android 6.0 or newer: Plugin to support runtime permissions--> 
     <plugin name="cordova-plugin-geolocation-android-activator" spec="1.1.2" />
     
