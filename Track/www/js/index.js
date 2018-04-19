@@ -36,14 +36,14 @@ function onDeviceReady() {
     });
     $('#clear').on("click", function () {
         $("[data-role=panel]").panel("close");
-        clearTrack();
-        //clearPathDialog();
+       // clearTrack();
+        clearPathDialog();
     });
     
     $('#deleteM').on("click",function(){
         $("[data-role=panel]").panel("close");
-        deleteMarkers();
-        //deleteMarkersDialog();
+        //deleteMarkers();
+        deleteMarkersDialog();
     });
 
     console.log("onDeviceReady");
