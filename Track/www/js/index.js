@@ -342,7 +342,8 @@ function failTrack(error) {
 
 function createNotification() {
         		
-  navigator.vibrate(3000);
+  navigator.vibrate(6000);
+  new Toast({content: "You has reached the point you set.", duration: 3000});
     
 }
 
