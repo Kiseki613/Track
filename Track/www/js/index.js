@@ -1,4 +1,9 @@
 //when the jQuery Mobile page has loaded
+
+$(document).on("deviceready", function() {
+    checkConnection();
+}, false)
+
 $(document).on('pageshow', '#pageone', onLoad);
 
 var map;
@@ -15,7 +20,7 @@ function onLoad() {
    
     initMap();
        
-    checkConnection();
+    
 }
 
 // Initialise device / HTML hooks
