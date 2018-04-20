@@ -227,7 +227,7 @@ var locationOptions = {
 
 function startTrack(){
     
-    checkConnection();
+   
     
     watchID = navigator.geolocation.watchPosition(updateTrack,failTrack,locationOptions);
     
@@ -366,6 +366,8 @@ function clearPathDismissed(buttonIndex) {
 
 //called if the position is not obtained correctly
 function failTrack(error) {
+    
+     checkConnection();
 
 	console.log("The position is not obtained correctly.");
 	
