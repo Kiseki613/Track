@@ -9,7 +9,7 @@ var m=0;
 function onLoad() {
     
     onDeviceReady();
-    checkConnection();
+    //checkConnection();
     initMap();
 }
 
@@ -221,6 +221,8 @@ var locationOptions = {
 
 
 function startTrack(){
+    
+    checkConnection();
     
     watchID = navigator.geolocation.watchPosition(updateTrack,failTrack,locationOptions);
     
