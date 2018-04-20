@@ -8,6 +8,8 @@ var m=0;
 
 function onLoad() {
     
+    console.log("onLoad");
+    
     checkConnection();
     
     onDeviceReady();
@@ -72,10 +74,13 @@ function checkConnection() {
     
    // alert("checkConnection");
     
-//    console.log("checkConnection");
+    console.log("checkConnection");
+    
+    
     
     var networkState = navigator.connection.type;
     
+    console.log(networkState);
     
     alert(networkState);
    /* var states = {};
