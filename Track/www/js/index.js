@@ -14,8 +14,7 @@ function onLoad() {
     onDeviceReady();
    
     initMap();
-    
-        
+       
     checkConnection();
 }
 
