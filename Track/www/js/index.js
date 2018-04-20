@@ -1,7 +1,11 @@
+  $(document).on("deviceready", function() {
+         alert("deviceready");
+        checkConnection();
+    }, false);
+
+
 //when the jQuery Mobile page has loaded
-
-
-$(document).on('pageshow', '#pageone', onLoad);
+$(document).on('pagecreate', '#pageone', onLoad);
 
 var map;
 var markers = [];
@@ -16,11 +20,7 @@ function onLoad() {
     console.log("onLoad");
 
     
-    $(document).on("deviceready", function() {
-         alert("deviceready");
-        checkConnection();
-    }, false);
-
+  
     
     
     
