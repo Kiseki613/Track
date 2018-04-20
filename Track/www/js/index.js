@@ -9,12 +9,14 @@ var m=0;
 function onLoad() {
     alert("onLoad");
     console.log("onLoad");
-    
-    checkConnection();
+
     
     onDeviceReady();
    
     initMap();
+    
+        
+    checkConnection();
 }
 
 // Initialise device / HTML hooks
