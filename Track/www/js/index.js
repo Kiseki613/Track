@@ -5,7 +5,7 @@
 
 
 //when the jQuery Mobile page has loaded
-$(document).on('pagecreate', '#pageone', onLoad);
+$(document).on('pageshow', '#pageone', onLoad);
 
 var map;
 var markers = [];
