@@ -1,8 +1,5 @@
 //when the jQuery Mobile page has loaded
 
-$(document).on("deviceready", function() {
-    checkConnection();
-}, false)
 
 $(document).on('pageshow', '#pageone', onLoad);
 
@@ -12,9 +9,20 @@ var markPosition = [];
 var m=0;
 
 function onLoad() {
+    
+    
+    
     alert("onLoad");
     console.log("onLoad");
 
+    
+    $(document).on("deviceready", function() {
+         alert("deviceready");
+        checkConnection();
+    }, false);
+
+    
+    
     
     onDeviceReady();
    
