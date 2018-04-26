@@ -305,8 +305,10 @@ var locationOptions = {
 //Start track and set watchID
 function startTrack(){
     
+    
     //call updateTrack when it success, call failTrack when it failed, and set location options
     watchID = navigator.geolocation.watchPosition(updateTrack,failTrack,locationOptions);
+     new Toast({content: "Start tracking", duration: 3000});
     
 }
 
