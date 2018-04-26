@@ -5,7 +5,7 @@
         id        = "mob.app.dev.googlemaps"
         version   = "1.0.7">
 
-    <name>Track</name>
+    <name>Tracking your way</name>
 
     <description>
         My track
