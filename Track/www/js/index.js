@@ -1,7 +1,7 @@
-  $(document).on("deviceready", function() {
+/*  $(document).on("deviceready", function() {
          alert("deviceready");
         checkConnection();
-    }, false);
+    }, false);*/
 
 
 //when the jQuery Mobile page has loaded
@@ -16,12 +16,8 @@ function onLoad() {
     
     
     
-    alert("onLoad");
+   // alert("onLoad");
     console.log("onLoad");
-
-    
-  
-    
     
     
     onDeviceReady();
@@ -36,7 +32,6 @@ function onDeviceReady() {
     // Set map size dynamically
     $('#content').height(getRealContentHeight());
 
-    
     
     // Button listeners
     $('#btnhere').on("click", function () {
@@ -90,13 +85,11 @@ function checkConnection() {
     
     console.log("checkConnection");
     
-    
-    
     var networkState = navigator.connection.type;
     
     console.log(networkState);
     
-    alert(networkState);
+    //alert(networkState);
    /* var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
@@ -109,11 +102,11 @@ function checkConnection() {
  
     alert('Connection type: ' + states[networkState]);*/
  
-  /* if (networkState == "none")
+  if (networkState == "none")
         {
-            alert('No network connection');
-            //new Toast({content: "Sorry, no network connection", duration: 10000});
-        }*/
+            //alert('No network connection');
+            new Toast({content: "Sorry, no network connection", duration: 10000});
+        }
     
 }
  
@@ -583,9 +576,11 @@ function startTrack(){
 
 
 function updateTrack(position){
+    checkConnection();
+   
     console.log("tracking...");
     
-     console.log("a " + markPosition)
+    console.log("a " + markPosition)
     
     var lo = position.coords.longitude;
     var la = position.coords.latitude;
