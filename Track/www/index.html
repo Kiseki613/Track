@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <!--  Mobile screen size control  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-   
-    
+    <!--  Style links -->
+    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
     <link href="jquery-mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css">
-    
     <link rel="stylesheet" href="css/toast.css" type="text/css">
+    
       <!--  Google maps API call + key  -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhpu9kAo7650VIz0020cvGANLy8ESkqc "></script>
 
@@ -38,44 +37,27 @@
         margin: 0;
         padding: 0;
       }
-      #floating-panel {
-        position: absolute;
-        top: 45px;
-        right: 50%;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        font-family: 'Roboto','sans-serif';
-        line-height: 5px;
-        padding-left: 10px;
-
-
-      }
-        
-    </style>
-    
-  
-        <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
-    <style>
-
-      .selector-control {
+     /* Style for Map style selector*/
+        .selector-control {
         font-size: 14px;
         line-height: 30px;
         padding-left: 5px;
         padding-right: 5px;
       }
+        
     </style>
+    
+  
+        
 
 </head>
 
 <body>
-<!--<div id="floating-panel" ><p>Click on the map to add markers.</p></div>-->
-  
+
     
     
-<div id="style-selector-control"  class="map-control">
+  <!--Map style seletor--> 
+    <div id="style-selector-control"  class="map-control">
       <select id="style-selector" class="selector-control">
         <option value="default">Default</option>
         <option value="silver">Silver</option>
@@ -90,11 +72,13 @@
     
 
     <div data-role="page" id="pageone">
-
+        
+        
+        <!--Operation panel-->
         <div data-role="panel" id="navpanel" data-display="overlay">
             <h2>Track your way</h2>
             <p></p>
-            <input type="button" value="Current location" id="btnhere" data-theme="b">
+            <input type="button" value="Current location" id="btnhere" >
             <p></p>
             <p></p>
             <p></p>
@@ -112,22 +96,29 @@
             <input type="button" value="Clear Path" id="clear" data-theme="b">
             <input type=button value="Delete Markers" id="deleteM" data-theme="b">
         </div>
-
+        
+         <!--header-->
         <div data-role="header">
             <a href="#navpanel" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-icon-bars ui-btn-icon-left" rel="external">Start</a>
             <h3>Track</h3>
         </div>
+    
         
-     <div id="map"></div>
-        
-        
+        <!--Map-->
+        <div id="map"></div>
         
         <div data-role="content" id="content">
             <div id="map_canvas" style="height:100%"></div>
         </div>
-
+        
+         
+         
+        <!--footer-->
         <div data-role="footer" data-position="fixed">
+            
+            <!--Show track state-->
             <h3>Track <span id="trackText">OFF</span></h3>
+            
         </div>
 
     </div>
