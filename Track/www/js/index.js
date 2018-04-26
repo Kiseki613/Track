@@ -50,14 +50,14 @@ function onDeviceReady() {
         $("[data-role=panel]").panel("close");
         
         //change the text of footer to ON
-        $('#trackText').text("ON");
+        $('#trackText').text("ing...");
         startTrack();
     });
     $('#stop').on("click", function () {
         $("[data-role=panel]").panel("close");
         
         //change the text of footer to OFF
-        $('#trackText').text("OFF");
+        $('#trackText').text("Stoped");
         stopTrack();
     });
     $('#clear').on("click", function () {
