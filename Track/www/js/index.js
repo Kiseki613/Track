@@ -5,6 +5,8 @@
 
 
 //when the jQuery Mobile page has loaded
+
+
 $(document).on('pageshow', '#pageone', onLoad);
 
 var map;
@@ -18,6 +20,8 @@ var markPosition = [];
 // the number of markers
 var m=0;
 
+var storeMarker = [];
+
 
 
 function onLoad() {
@@ -25,13 +29,14 @@ function onLoad() {
    // alert("onLoad");
     console.log("onLoad");
     
-    checkConnection();
+    
     
     //initialize device
     onDeviceReady();
     
-    //initialize map
-    initMap();
+    checkConnection();
+    
+
        
     
 }
@@ -121,8 +126,9 @@ function checkConnection() {
             new Toast({content: "Sorry, no network connection", duration: 10000});
             $('#trackText').text("(NO Network)");
         }
-     
-    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhpu9kAo7650VIz0020cvGANLy8ESkqc");
+    
+    
+    $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhpu9kAo7650VIz0020cvGANLy8ESkqc&callback=initMap');
     
     
 }
@@ -163,7 +169,9 @@ function initMap() {
 
         // Apply new JSON when the user selects a different style.
         styleSelector.addEventListener('change', function() {
+            
           map.setOptions({styles: styles[styleSelector.value]});
+            
         });
     
 }
@@ -172,7 +180,7 @@ function initMap() {
 
 // Adds a marker to the map and push to the array.
 function addMarker(location) {
-     console.log("addMarker" )
+     console.log("addMarker")
     var marker = new google.maps.Marker({
           position: location,
           map: map
@@ -182,6 +190,11 @@ function addMarker(location) {
     //store markers'position in the array markPosition 
         markPosition[m] = location;
         console.log("markPosition:"+markPosition[m]);
+        
+       // localStorage.setItem('markers',JSON.stringify(markers));
+    
+        //var readMarkers = JSON.parse(localStorage.getItem('markers'));
+    
     
     //count the number of markers
         m++;
