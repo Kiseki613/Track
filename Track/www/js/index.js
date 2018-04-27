@@ -57,7 +57,7 @@ function onDeviceReady() {
         $("[data-role=panel]").panel("close");
         
         //change the text of footer to OFF
-        $('#trackText').text("Stoped");
+        $('#trackText').text("Stopped");
         stopTrack();
     });
     $('#clear').on("click", function () {
