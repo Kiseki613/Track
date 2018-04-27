@@ -25,6 +25,8 @@ function onLoad() {
    // alert("onLoad");
     console.log("onLoad");
     
+    checkConnection();
+    
     //initialize device
     onDeviceReady();
     
@@ -119,6 +121,9 @@ function checkConnection() {
             new Toast({content: "Sorry, no network connection", duration: 10000});
             $('#trackText').text("(NO Network)");
         }
+     
+    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhpu9kAo7650VIz0020cvGANLy8ESkqc");
+    
     
 }
  
