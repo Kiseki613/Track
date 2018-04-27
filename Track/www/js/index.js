@@ -404,7 +404,7 @@ if(markPosition.length!=0){
         //if the distance is less than 0.005, create vibration and a toast message
         if(g[x]<0.0005){
             
-            navigator.vibrate(6000);
+            navigator.vibrate(30000);
             new Toast({content: "You has reached the point you set.", duration: 3000});
         // alert( "You has reached the point you set");
            
