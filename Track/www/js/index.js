@@ -117,6 +117,7 @@ function checkConnection() {
         {
             //alert('No network connection');
             new Toast({content: "Sorry, no network connection", duration: 10000});
+            $('#trackText').text("(NO network)");
         }
     
 }
