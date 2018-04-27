@@ -100,26 +100,11 @@ function getRealContentHeight() {
 //check network connection, if no internet, create a toast message
 function checkConnection() {
     
-   // alert("checkConnection");
-    
     console.log("checkConnection");
     
     var networkState = navigator.connection.type;
     console.log(networkState);
-    
-    //alert(networkState);
-   /* var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
- 
-    alert('Connection type: ' + states[networkState]);*/
- 
+   
   if (networkState == "none")
         {
             //alert('No network connection');
@@ -132,7 +117,25 @@ function checkConnection() {
     
     
 }
- 
+
+//checkConnection,but do not initMap
+ function checkConnection_2() {
+    
+    console.log("checkConnection");
+    
+    var networkState = navigator.connection.type;
+    console.log(networkState);
+   
+  if (networkState == "none")
+        {
+            //alert('No network connection');
+            new Toast({content: "Sorry, no network connection", duration: 10000});
+            $('#trackText').text("(NO Network)");
+        }
+    
+    
+    
+}
 
 
 // Initialise map
@@ -264,7 +267,7 @@ function deleteMarkersDismissed(buttonIndex) {
 function getPosition() {
     
     //checeking network connection before getting current position
-    checkConnection();  
+    checkConnection_2();  
     
     //determine the process of getting current position when it success and fail
     navigator.geolocation.getCurrentPosition(successPosition, failPosition);
@@ -323,7 +326,8 @@ var locationOptions = {
 
 //Start track and set watchID
 function startTrack(){
-    
+   
+    checkConnection_2();
     
     //call updateTrack when it success, call failTrack when it failed, and set location options
     watchID = navigator.geolocation.watchPosition(updateTrack,failTrack,locationOptions);
@@ -336,7 +340,6 @@ function startTrack(){
 function updateTrack(position){
     
     //check network before update tracking
-    checkConnection();
    
     console.log("tracking...");
     console.log("a " + markPosition)
