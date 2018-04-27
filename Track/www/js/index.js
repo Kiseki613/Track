@@ -113,7 +113,7 @@ function checkConnection() {
         }
     
     
-    $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhpu9kAo7650VIz0020cvGANLy8ESkqc&callback=initMap');
+    $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhpu9kAo7650VIz0020cvGANLy8ESkqc&sensor=true&callback=initMap');
     
     
 }
